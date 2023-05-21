@@ -6,11 +6,11 @@ class PlacesController < ApplicationController
   
   def create
     #   # start with a new Company
-      @places = Place.new
+      @place = Place.new
     #   # assign user-entered form data to Company's columns
-      @places["name"] = params["places"]["name"]
+      @place["name"] = params["place"]["name"]
     #   # save Company row
-      @places.save
+      @place.save
   
     #   # redirect user
     redirect_to "/places"
