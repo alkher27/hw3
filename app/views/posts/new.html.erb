@@ -1,0 +1,21 @@
+<h1>New Post</h1>
+
+<%= form_with :model => @post do |form| %>
+  <p>
+    <%= form.label "title" %>
+    <%= form.text_field "Title" %>
+  </p>
+  <p>
+    <%= form.label "long description" %>
+    <%= form.text_field "Long Description" %>
+  </p>
+  <p>
+    <%= form.label "date" %>
+    <%= form.text_field "Date" %>
+  </p>
+    <%= form.hidden_field "place_id" %>
+  
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

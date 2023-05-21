@@ -16,6 +16,13 @@ class PlacesController < ApplicationController
     redirect_to "/places"
     end
   
+    def show
+      #   # find a Company
+        @place = Place.find_by({ "id" => params["id"] })
+        @posts = Post.where({"place_id" => @place["id"]})
+      #   # render companies/show view with details about Company
+      end
+
     def new
       @place = Place.new
       #render view with new Company form  
