@@ -5,11 +5,11 @@ class PlacesController < ApplicationController
   end
   
   def create
-    #   # start with a new Company
+    #   # start with a new Place
       @place = Place.new
-    #   # assign user-entered form data to Company's columns
+    #   # assign user-entered form data to Place's columns
       @place["name"] = params["place"]["name"]
-    #   # save Company row
+    #   # save Place row
       @place.save
   
     #   # redirect user
@@ -17,15 +17,15 @@ class PlacesController < ApplicationController
     end
   
     def show
-      #   # find a Company
+      #   # find a Place
         @place = Place.find_by({ "id" => params["id"] })
         @posts = Post.where({"place_id" => @place["id"]})
-      #   # render companies/show view with details about Company
+      #   # render places/show view with details about Place
       end
 
     def new
       @place = Place.new
-      #render view with new Company form  
+      #render view with new Place form  
     end
 
 end
