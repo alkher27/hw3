@@ -1,14 +1,15 @@
-<!-- Places details page -->
-
 <h1><%= @place["name"] %> </h1>
 
-<h2>
-  <% for post in @posts%>
-    <%= post["title"] %>
-    <%= post["date"] %>
-    <%= post["long description"] %>
+<% @posts.each do |post| %>
+  <div style="border: 1px solid #ddd; padding: 10px; margin-bottom: 10px;">
+    <h2>Title: <%= post["title"] %></h2>
+    <% if post["posted_on"].present? %>
+      <p>Date: <%= post["posted_on"].strftime("%B %d, %Y") %></p> <!-- formatted date -->
     <% end %>
-</h2>
+    <p>Description: <%= post["description"] %></p>
+  </div>
+<% end %>
+
 <p>
   <a href="/posts/new?place_id=<%= @place["id"] %>">New Post</a>
 </p>

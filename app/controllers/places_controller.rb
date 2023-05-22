@@ -4,6 +4,18 @@ class PlacesController < ApplicationController
     @places = Place.all
   end
   
+  def show
+    #   # find a Place
+      @place = Place.find_by({ "id" => params["id"] })
+      @posts = Post.where({"place_id" => @place["id"]})
+    #   # render places/show view with details about Place
+    end
+
+    def new
+      @place = Place.new
+      #render view with new Place form  
+    end
+
   def create
     #   # start with a new Place
       @place = Place.new
@@ -16,16 +28,4 @@ class PlacesController < ApplicationController
     redirect_to "/places"
     end
   
-    def show
-      #   # find a Place
-        @place = Place.find_by({ "id" => params["id"] })
-        @posts = Post.where({"place_id" => @place["id"]})
-      #   # render places/show view with details about Place
-      end
-
-    def new
-      @place = Place.new
-      #render view with new Place form  
-    end
-
 end

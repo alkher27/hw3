@@ -18,6 +18,8 @@ class PostsController < ApplicationController
 
     # assign user-entered form data to Post's columns
     @post["title"] = params["post"]["title"]
+    @post["posted_on"] = params["post"]["posted_on"]
+    @post["description"] = params["post"]["description"]
 
     # assign relationship between Post and Place
     @post["place_id"] = params["post"]["place_id"]
